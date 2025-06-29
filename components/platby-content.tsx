@@ -201,7 +201,7 @@ const platbyData = [
     akce_id: "4",
     celkova_castka: 4500,
     zaplaceno: 4500,
-    zbyva_doplatit: 4500,
+    zbyva_doplatit: 0,
     datum_vytvoreni: "2024-11-10T13:00:00",
     datum_splatnosti: "2025-01-10T23:59:59",
     datum_posledni_platby: "2024-11-15T09:30:00",
@@ -321,6 +321,13 @@ export function PlatbyContent() {
     if (days < 0) return "text-red-600"
     if (days <= 3) return "text-orange-600"
     return "text-gray-600"
+  }
+
+  const formatAmount = (amount: number) => {
+    return amount.toLocaleString(undefined, {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    })
   }
 
   return (
@@ -515,13 +522,13 @@ export function PlatbyContent() {
                   <div className="flex flex-col lg:flex-row items-start lg:items-center gap-4">
                     {/* Payment Amount */}
                     <div className="text-center lg:text-right">
-                      <div className="text-2xl font-black text-black">{platba.celkova_castka.toLocaleString()} Kč</div>
+                      <div className="text-2xl font-black text-black">{formatAmount(platba.celkova_castka)} Kč</div>
                       <div className="text-sm font-bold text-green-600">
-                        Zaplaceno: {platba.zaplaceno.toLocaleString()} Kč
+                        Zaplaceno: {formatAmount(platba.zaplaceno)} Kč
                       </div>
                       {platba.zbyva_doplatit > 0 && (
                         <div className="text-sm font-bold text-red-600">
-                          Zbývá: {platba.zbyva_doplatit.toLocaleString()} Kč
+                          Zbývá: {formatAmount(platba.zbyva_doplatit)} Kč
                         </div>
                       )}
 

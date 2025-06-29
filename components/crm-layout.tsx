@@ -34,10 +34,7 @@ export function CRMLayout({ children }: CRMLayoutProps) {
     <div className="flex h-screen bg-white">
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" 
-          onClick={() => setSidebarOpen(false)} 
-        />
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
       {/* Sidebar */}
@@ -70,9 +67,7 @@ export function CRMLayout({ children }: CRMLayoutProps) {
                 variant="ghost"
                 onClick={() => handleNavigation(item.href)}
                 className={`w-full justify-start text-left font-bold text-black hover:bg-yellow-400 border-2 transition-all duration-200 ${
-                  pathname === item.href
-                    ? "border-black bg-yellow-400"
-                    : "border-transparent hover:border-black"
+                  pathname === item.href ? "border-black bg-yellow-400" : "border-transparent hover:border-black"
                 }`}
               >
                 <item.icon className="mr-3 h-5 w-5" />
@@ -106,16 +101,12 @@ export function CRMLayout({ children }: CRMLayoutProps) {
           </Button>
 
           <div className="flex items-center space-x-4">
-            <div className="bg-green-300 border-2 border-black px-3 py-1 font-bold text-sm">
-              AKTIVNÍ SEZÓNA 2024
-            </div>
+            <div className="bg-green-300 border-2 border-black px-3 py-1 font-bold text-sm">AKTIVNÍ SEZÓNA 2024</div>
           </div>
         </header>
 
         {/* Page content */}
-        <main className="flex-1 p-6 overflow-auto">
-          {children}
-        </main>
+        <main className="flex-1 p-6 overflow-auto">{children}</main>
       </div>
     </div>
   )
