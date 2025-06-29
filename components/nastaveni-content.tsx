@@ -100,96 +100,103 @@ export function NastaveniContent() {
   const getRoleBadge = (role: string) => {
     switch (role) {
       case "admin":
-        return <Badge className="bg-red-500 text-white border-2 border-black">👑 ADMIN</Badge>
+        return <Badge className="bg-red-300 text-black font-bold border-2 border-black">ADMIN</Badge>
       case "vedouci":
-        return <Badge className="bg-blue-500 text-white border-2 border-black">👨‍🏫 VEDOUCÍ</Badge>
+        return <Badge className="bg-blue-300 text-black font-bold border-2 border-black">VEDOUCÍ</Badge>
       case "asistent":
-        return <Badge className="bg-green-500 text-white border-2 border-black">🙋‍♂️ ASISTENT</Badge>
+        return <Badge className="bg-green-300 text-black font-bold border-2 border-black">ASISTENT</Badge>
       default:
-        return <Badge className="bg-gray-500 text-white border-2 border-black">❓ NEZNÁMÁ</Badge>
+        return <Badge className="bg-gray-300 text-black font-bold border-2 border-black">NEZNÁMÁ</Badge>
     }
   }
 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-black text-black">⚙️ NASTAVENÍ</h1>
-          <p className="text-gray-600 font-medium">Konfigurace systému a organizace</p>
+          <h1 className="text-2xl lg:text-3xl font-black text-black">NASTAVENÍ</h1>
+          <p className="text-gray-600 font-medium text-sm lg:text-base">Konfigurace systému a organizace</p>
         </div>
         <div className="flex gap-2">
-          <Button className="bg-green-400 hover:bg-green-500 text-black font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <Button className="bg-green-300 hover:bg-green-400 text-black font-bold border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
             <Save className="mr-2 h-4 w-4" />
-            Uložit změny
+            ULOŽIT ZMĚNY
           </Button>
-          <Button variant="outline" className="border-2 border-black font-bold hover:bg-gray-100 bg-transparent">
+          <Button className="bg-blue-300 hover:bg-blue-400 text-black font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
             <Download className="mr-2 h-4 w-4" />
-            Export nastavení
+            EXPORT
           </Button>
         </div>
       </div>
 
       {/* Tabs */}
       <Tabs defaultValue="organizace" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-2 lg:grid-cols-6 border-4 border-black bg-yellow-300">
-          <TabsTrigger
-            value="organizace"
-            className="font-bold data-[state=active]:bg-white data-[state=active]:border-2 data-[state=active]:border-black"
-          >
-            <Building2 className="mr-2 h-4 w-4" />
-            Organizace
-          </TabsTrigger>
-          <TabsTrigger
-            value="uzivatele"
-            className="font-bold data-[state=active]:bg-white data-[state=active]:border-2 data-[state=active]:border-black"
-          >
-            <Users className="mr-2 h-4 w-4" />
-            Uživatelé
-          </TabsTrigger>
-          <TabsTrigger
-            value="email"
-            className="font-bold data-[state=active]:bg-white data-[state=active]:border-2 data-[state=active]:border-black"
-          >
-            <Mail className="mr-2 h-4 w-4" />
-            Email
-          </TabsTrigger>
-          <TabsTrigger
-            value="platby"
-            className="font-bold data-[state=active]:bg-white data-[state=active]:border-2 data-[state=active]:border-black"
-          >
-            <CreditCard className="mr-2 h-4 w-4" />
-            Platby
-          </TabsTrigger>
-          <TabsTrigger
-            value="notifikace"
-            className="font-bold data-[state=active]:bg-white data-[state=active]:border-2 data-[state=active]:border-black"
-          >
-            <Bell className="mr-2 h-4 w-4" />
-            Notifikace
-          </TabsTrigger>
-          <TabsTrigger
-            value="system"
-            className="font-bold data-[state=active]:bg-white data-[state=active]:border-2 data-[state=active]:border-black"
-          >
-            <Database className="mr-2 h-4 w-4" />
-            Systém
-          </TabsTrigger>
-        </TabsList>
+        <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <CardHeader className="border-b-4 border-black bg-yellow-300">
+            <CardTitle className="font-black text-black">KATEGORIE NASTAVENÍ</CardTitle>
+          </CardHeader>
+          <CardContent className="p-0">
+            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-6 bg-white border-0 rounded-none h-auto">
+              <TabsTrigger
+                value="organizace"
+                className="font-bold border-r-2 border-black last:border-r-0 data-[state=active]:bg-yellow-300 data-[state=active]:text-black rounded-none py-4"
+              >
+                <Building2 className="mr-2 h-4 w-4" />
+                ORGANIZACE
+              </TabsTrigger>
+              <TabsTrigger
+                value="uzivatele"
+                className="font-bold border-r-2 border-black last:border-r-0 data-[state=active]:bg-yellow-300 data-[state=active]:text-black rounded-none py-4"
+              >
+                <Users className="mr-2 h-4 w-4" />
+                UŽIVATELÉ
+              </TabsTrigger>
+              <TabsTrigger
+                value="email"
+                className="font-bold border-r-2 border-black last:border-r-0 data-[state=active]:bg-yellow-300 data-[state=active]:text-black rounded-none py-4"
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                EMAIL
+              </TabsTrigger>
+              <TabsTrigger
+                value="platby"
+                className="font-bold border-r-2 border-black last:border-r-0 data-[state=active]:bg-yellow-300 data-[state=active]:text-black rounded-none py-4"
+              >
+                <CreditCard className="mr-2 h-4 w-4" />
+                PLATBY
+              </TabsTrigger>
+              <TabsTrigger
+                value="notifikace"
+                className="font-bold border-r-2 border-black last:border-r-0 data-[state=active]:bg-yellow-300 data-[state=active]:text-black rounded-none py-4"
+              >
+                <Bell className="mr-2 h-4 w-4" />
+                NOTIFIKACE
+              </TabsTrigger>
+              <TabsTrigger
+                value="system"
+                className="font-bold data-[state=active]:bg-yellow-300 data-[state=active]:text-black rounded-none py-4"
+              >
+                <Database className="mr-2 h-4 w-4" />
+                SYSTÉM
+              </TabsTrigger>
+            </TabsList>
+          </CardContent>
+        </Card>
 
         {/* Organizace Tab */}
         <TabsContent value="organizace">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-black">
+              <CardHeader className="border-b-4 border-black bg-purple-300">
+                <CardTitle className="flex items-center gap-2 font-black text-black">
                   <Building2 className="h-5 w-5" />
                   ZÁKLADNÍ ÚDAJE
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="p-6 space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="nazev" className="font-bold">
+                  <Label htmlFor="nazev" className="font-bold text-black uppercase text-sm">
                     Název organizace
                   </Label>
                   <Input
@@ -202,7 +209,7 @@ export function NastaveniContent() {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="ico" className="font-bold">
+                    <Label htmlFor="ico" className="font-bold text-black uppercase text-sm">
                       IČO
                     </Label>
                     <Input
@@ -213,7 +220,7 @@ export function NastaveniContent() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="dic" className="font-bold">
+                    <Label htmlFor="dic" className="font-bold text-black uppercase text-sm">
                       DIČ
                     </Label>
                     <Input
@@ -226,7 +233,7 @@ export function NastaveniContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="adresa" className="font-bold">
+                  <Label htmlFor="adresa" className="font-bold text-black uppercase text-sm">
                     Adresa
                   </Label>
                   <Textarea
@@ -241,15 +248,15 @@ export function NastaveniContent() {
             </Card>
 
             <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-black">
+              <CardHeader className="border-b-4 border-black bg-green-300">
+                <CardTitle className="flex items-center gap-2 font-black text-black">
                   <Globe className="h-5 w-5" />
                   KONTAKTNÍ ÚDAJE
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="p-6 space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="telefon" className="font-bold">
+                  <Label htmlFor="telefon" className="font-bold text-black uppercase text-sm">
                     Telefon
                   </Label>
                   <Input
@@ -261,7 +268,7 @@ export function NastaveniContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className="font-bold">
+                  <Label htmlFor="email" className="font-bold text-black uppercase text-sm">
                     Email
                   </Label>
                   <Input
@@ -274,7 +281,7 @@ export function NastaveniContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="web" className="font-bold">
+                  <Label htmlFor="web" className="font-bold text-black uppercase text-sm">
                     Webové stránky
                   </Label>
                   <Input
@@ -286,12 +293,12 @@ export function NastaveniContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="font-bold">Logo organizace</Label>
-                  <div className="border-2 border-dashed border-black p-4 text-center">
+                  <Label className="font-bold text-black uppercase text-sm">Logo organizace</Label>
+                  <div className="border-2 border-dashed border-black p-4 text-center bg-gray-50">
                     <Upload className="mx-auto h-8 w-8 text-gray-400 mb-2" />
-                    <p className="text-sm text-gray-600">Přetáhněte logo nebo klikněte pro výběr</p>
-                    <Button variant="outline" className="mt-2 border-2 border-black font-bold bg-transparent">
-                      Vybrat soubor
+                    <p className="text-sm text-gray-600 font-medium">Přetáhněte logo nebo klikněte pro výběr</p>
+                    <Button className="mt-2 bg-blue-300 hover:bg-blue-400 text-black font-bold border-2 border-black">
+                      VYBRAT SOUBOR
                     </Button>
                   </div>
                 </div>
@@ -302,95 +309,85 @@ export function NastaveniContent() {
 
         {/* Uživatelé Tab */}
         <TabsContent value="uzivatele">
-          <div className="space-y-6">
-            <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="flex items-center gap-2 font-black">
-                    <Users className="h-5 w-5" />
-                    SPRÁVA UŽIVATELŮ
-                  </CardTitle>
-                  <Button className="bg-green-400 hover:bg-green-500 text-black font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-                    <UserPlus className="mr-2 h-4 w-4" />
-                    Přidat uživatele
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {uzivatele.map((uzivatel) => (
-                    <div
-                      key={uzivatel.id}
-                      className="flex items-center justify-between p-4 border-2 border-black bg-white"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-yellow-300 border-2 border-black rounded-full flex items-center justify-center font-black">
-                          {uzivatel.jmeno
-                            .split(" ")
-                            .map((n) => n[0])
-                            .join("")}
-                        </div>
-                        <div>
-                          <div className="font-bold">{uzivatel.jmeno}</div>
-                          <div className="text-sm text-gray-600">{uzivatel.email}</div>
-                          <div className="text-xs text-gray-500">
-                            Poslední přihlášení: {uzivatel.posledni_prihlaseni}
-                          </div>
-                        </div>
+          <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <CardHeader className="border-b-4 border-black bg-blue-300">
+              <div className="flex items-center justify-between">
+                <CardTitle className="flex items-center gap-2 font-black text-black">
+                  <Users className="h-5 w-5" />
+                  SPRÁVA UŽIVATELŮ
+                </CardTitle>
+                <Button className="bg-green-300 hover:bg-green-400 text-black font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
+                  <UserPlus className="mr-2 h-4 w-4" />
+                  PŘIDAT UŽIVATELE
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="p-6">
+              <div className="space-y-4">
+                {uzivatele.map((uzivatel) => (
+                  <div
+                    key={uzivatel.id}
+                    className="flex items-center justify-between p-4 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 bg-yellow-300 border-2 border-black rounded-full flex items-center justify-center font-black text-lg">
+                        {uzivatel.jmeno
+                          .split(" ")
+                          .map((n) => n[0])
+                          .join("")}
                       </div>
-                      <div className="flex items-center gap-4">
-                        {getRoleBadge(uzivatel.role)}
-                        <div className="flex items-center gap-2">
-                          <Switch checked={uzivatel.aktivni} />
-                          <span className="text-sm font-medium">{uzivatel.aktivni ? "Aktivní" : "Neaktivní"}</span>
-                        </div>
-                        <div className="flex gap-1">
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-2 border-black hover:bg-gray-100 bg-transparent"
-                          >
-                            <Eye className="h-3 w-3" />
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-2 border-black hover:bg-gray-100 bg-transparent"
-                          >
-                            <Key className="h-3 w-3" />
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="outline"
-                            className="border-2 border-black hover:bg-red-100 bg-transparent"
-                          >
-                            <Trash2 className="h-3 w-3" />
-                          </Button>
+                      <div>
+                        <div className="font-black text-black">{uzivatel.jmeno}</div>
+                        <div className="text-sm text-gray-600 font-medium">{uzivatel.email}</div>
+                        <div className="text-xs text-gray-500 font-medium">
+                          Poslední přihlášení: {uzivatel.posledni_prihlaseni}
                         </div>
                       </div>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+                    <div className="flex items-center gap-4">
+                      {getRoleBadge(uzivatel.role)}
+                      <div className="flex items-center gap-2">
+                        <Switch checked={uzivatel.aktivni} />
+                        <span className="text-sm font-bold">{uzivatel.aktivni ? "AKTIVNÍ" : "NEAKTIVNÍ"}</span>
+                      </div>
+                      <div className="flex gap-1">
+                        <Button size="sm" variant="ghost" className="border-2 border-black hover:bg-gray-100">
+                          <Eye className="h-3 w-3" />
+                        </Button>
+                        <Button size="sm" variant="ghost" className="border-2 border-black hover:bg-gray-100">
+                          <Key className="h-3 w-3" />
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="ghost"
+                          className="border-2 border-black hover:bg-red-100 text-red-600"
+                        >
+                          <Trash2 className="h-3 w-3" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
         </TabsContent>
 
         {/* Email Tab */}
         <TabsContent value="email">
           <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-black">
+            <CardHeader className="border-b-4 border-black bg-pink-300">
+              <CardTitle className="flex items-center gap-2 font-black text-black">
                 <Mail className="h-5 w-5" />
                 NASTAVENÍ EMAILU
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="p-6 space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h3 className="font-bold text-lg">SMTP Server</h3>
+                  <h3 className="font-black text-lg text-black uppercase">SMTP Server</h3>
                   <div className="space-y-2">
-                    <Label htmlFor="smtp_server" className="font-bold">
+                    <Label htmlFor="smtp_server" className="font-bold text-black uppercase text-sm">
                       SMTP Server
                     </Label>
                     <Input
@@ -401,7 +398,7 @@ export function NastaveniContent() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="smtp_port" className="font-bold">
+                    <Label htmlFor="smtp_port" className="font-bold text-black uppercase text-sm">
                       Port
                     </Label>
                     <Input
@@ -412,7 +409,7 @@ export function NastaveniContent() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="smtp_username" className="font-bold">
+                    <Label htmlFor="smtp_username" className="font-bold text-black uppercase text-sm">
                       Uživatelské jméno
                     </Label>
                     <Input
@@ -423,7 +420,7 @@ export function NastaveniContent() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="smtp_password" className="font-bold">
+                    <Label htmlFor="smtp_password" className="font-bold text-black uppercase text-sm">
                       Heslo
                     </Label>
                     <div className="relative">
@@ -448,9 +445,9 @@ export function NastaveniContent() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="font-bold text-lg">Odesílatel</h3>
+                  <h3 className="font-black text-lg text-black uppercase">Odesílatel</h3>
                   <div className="space-y-2">
-                    <Label htmlFor="from_name" className="font-bold">
+                    <Label htmlFor="from_name" className="font-bold text-black uppercase text-sm">
                       Jméno odesílatele
                     </Label>
                     <Input
@@ -461,7 +458,7 @@ export function NastaveniContent() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="from_email" className="font-bold">
+                    <Label htmlFor="from_email" className="font-bold text-black uppercase text-sm">
                       Email odesílatele
                     </Label>
                     <Input
@@ -474,9 +471,9 @@ export function NastaveniContent() {
                   </div>
 
                   <div className="mt-6">
-                    <Button className="bg-blue-400 hover:bg-blue-500 text-black font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                    <Button className="bg-blue-300 hover:bg-blue-400 text-black font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
                       <Mail className="mr-2 h-4 w-4" />
-                      Otestovat připojení
+                      OTESTOVAT PŘIPOJENÍ
                     </Button>
                   </div>
                 </div>
@@ -488,18 +485,18 @@ export function NastaveniContent() {
         {/* Platby Tab */}
         <TabsContent value="platby">
           <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-black">
+            <CardHeader className="border-b-4 border-black bg-orange-300">
+              <CardTitle className="flex items-center gap-2 font-black text-black">
                 <CreditCard className="h-5 w-5" />
                 NASTAVENÍ PLATEB
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="p-6 space-y-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-4">
-                  <h3 className="font-bold text-lg">Bankovní údaje</h3>
+                  <h3 className="font-black text-lg text-black uppercase">Bankovní údaje</h3>
                   <div className="space-y-2">
-                    <Label htmlFor="bank_account" className="font-bold">
+                    <Label htmlFor="bank_account" className="font-bold text-black uppercase text-sm">
                       Číslo účtu
                     </Label>
                     <Input
@@ -510,7 +507,7 @@ export function NastaveniContent() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="vs_prefix" className="font-bold">
+                    <Label htmlFor="vs_prefix" className="font-bold text-black uppercase text-sm">
                       Prefix variabilního symbolu
                     </Label>
                     <Input
@@ -525,9 +522,9 @@ export function NastaveniContent() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="font-bold text-lg">Termíny a upomínky</h3>
+                  <h3 className="font-black text-lg text-black uppercase">Termíny a upomínky</h3>
                   <div className="space-y-2">
-                    <Label htmlFor="splatnost" className="font-bold">
+                    <Label htmlFor="splatnost" className="font-bold text-black uppercase text-sm">
                       Splatnost (dny)
                     </Label>
                     <Input
@@ -541,7 +538,7 @@ export function NastaveniContent() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="upominka" className="font-bold">
+                    <Label htmlFor="upominka" className="font-bold text-black uppercase text-sm">
                       Upomínka po (dny)
                     </Label>
                     <Input
@@ -554,7 +551,7 @@ export function NastaveniContent() {
                       className="border-2 border-black font-medium"
                     />
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 p-3 border-2 border-black bg-white">
                     <Switch
                       id="auto_upominky"
                       checked={platbySettings.automaticke_upominky}
@@ -562,17 +559,17 @@ export function NastaveniContent() {
                         setPlatbySettings({ ...platbySettings, automaticke_upominky: checked })
                       }
                     />
-                    <Label htmlFor="auto_upominky" className="font-bold">
+                    <Label htmlFor="auto_upominky" className="font-bold text-black uppercase text-sm">
                       Automatické upomínky
                     </Label>
                   </div>
-                  <div className="flex items-center space-x-2">
+                  <div className="flex items-center space-x-2 p-3 border-2 border-black bg-white">
                     <Switch
                       id="qr_platby"
                       checked={platbySettings.qr_platby}
                       onCheckedChange={(checked) => setPlatbySettings({ ...platbySettings, qr_platby: checked })}
                     />
-                    <Label htmlFor="qr_platby" className="font-bold">
+                    <Label htmlFor="qr_platby" className="font-bold text-black uppercase text-sm">
                       QR kódy pro platby
                     </Label>
                   </div>
@@ -585,21 +582,21 @@ export function NastaveniContent() {
         {/* Notifikace Tab */}
         <TabsContent value="notifikace">
           <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2 font-black">
+            <CardHeader className="border-b-4 border-black bg-cyan-300">
+              <CardTitle className="flex items-center gap-2 font-black text-black">
                 <Bell className="h-5 w-5" />
                 NASTAVENÍ NOTIFIKACÍ
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
+            <CardContent className="p-6 space-y-6">
               <div className="space-y-4">
-                <h3 className="font-bold text-lg">Typy notifikací</h3>
+                <h3 className="font-black text-lg text-black uppercase">Typy notifikací</h3>
 
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white">
+                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <div>
-                      <div className="font-bold">Email notifikace</div>
-                      <div className="text-sm text-gray-600">Zasílání emailových upozornění</div>
+                      <div className="font-black text-black">EMAIL NOTIFIKACE</div>
+                      <div className="text-sm text-gray-600 font-medium">Zasílání emailových upozornění</div>
                     </div>
                     <Switch
                       checked={notifications.email}
@@ -607,10 +604,10 @@ export function NastaveniContent() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white">
+                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <div>
-                      <div className="font-bold">SMS notifikace</div>
-                      <div className="text-sm text-gray-600">Zasílání SMS zpráv</div>
+                      <div className="font-black text-black">SMS NOTIFIKACE</div>
+                      <div className="text-sm text-gray-600 font-medium">Zasílání SMS zpráv</div>
                     </div>
                     <Switch
                       checked={notifications.sms}
@@ -618,10 +615,10 @@ export function NastaveniContent() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white">
+                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <div>
-                      <div className="font-bold">Push notifikace</div>
-                      <div className="text-sm text-gray-600">Upozornění v prohlížeči</div>
+                      <div className="font-black text-black">PUSH NOTIFIKACE</div>
+                      <div className="text-sm text-gray-600 font-medium">Upozornění v prohlížeči</div>
                     </div>
                     <Switch
                       checked={notifications.push}
@@ -630,15 +627,15 @@ export function NastaveniContent() {
                   </div>
                 </div>
 
-                <Separator className="border-black" />
+                <Separator className="border-2 border-black" />
 
-                <h3 className="font-bold text-lg">Události pro notifikace</h3>
+                <h3 className="font-black text-lg text-black uppercase">Události pro notifikace</h3>
 
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white">
+                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <div>
-                      <div className="font-bold">Upomínky plateb</div>
-                      <div className="text-sm text-gray-600">Upozornění na neuhrazené faktury</div>
+                      <div className="font-black text-black">UPOMÍNKY PLATEB</div>
+                      <div className="text-sm text-gray-600 font-medium">Upozornění na neuhrazené faktury</div>
                     </div>
                     <Switch
                       checked={notifications.upominky}
@@ -646,10 +643,10 @@ export function NastaveniContent() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white">
+                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <div>
-                      <div className="font-bold">Nové platby</div>
-                      <div className="text-sm text-gray-600">Upozornění na přijaté platby</div>
+                      <div className="font-black text-black">NOVÉ PLATBY</div>
+                      <div className="text-sm text-gray-600 font-medium">Upozornění na přijaté platby</div>
                     </div>
                     <Switch
                       checked={notifications.platby}
@@ -657,10 +654,10 @@ export function NastaveniContent() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white">
+                  <div className="flex items-center justify-between p-4 border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
                     <div>
-                      <div className="font-bold">Nové přihlášky</div>
-                      <div className="text-sm text-gray-600">Upozornění na nové přihlášky</div>
+                      <div className="font-black text-black">NOVÉ PŘIHLÁŠKY</div>
+                      <div className="text-sm text-gray-600 font-medium">Upozornění na nové přihlášky</div>
                     </div>
                     <Switch
                       checked={notifications.prihlasky}
@@ -677,75 +674,76 @@ export function NastaveniContent() {
         <TabsContent value="system">
           <div className="space-y-6">
             <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-black">
+              <CardHeader className="border-b-4 border-black bg-gray-300">
+                <CardTitle className="flex items-center gap-2 font-black text-black">
                   <Database className="h-5 w-5" />
                   SYSTÉMOVÉ INFORMACE
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="p-6 space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label className="font-bold">Verze systému</Label>
-                    <div className="p-2 bg-gray-100 border-2 border-black font-mono">v2.1.0</div>
+                    <Label className="font-bold text-black uppercase text-sm">Verze systému</Label>
+                    <div className="p-3 bg-gray-100 border-2 border-black font-mono font-bold">v2.1.0</div>
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Poslední aktualizace</Label>
-                    <div className="p-2 bg-gray-100 border-2 border-black font-mono">28.02.2024 14:30</div>
+                    <Label className="font-bold text-black uppercase text-sm">Poslední aktualizace</Label>
+                    <div className="p-3 bg-gray-100 border-2 border-black font-mono font-bold">28.02.2024 14:30</div>
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Databáze</Label>
-                    <div className="p-2 bg-green-100 border-2 border-black font-mono">✅ Připojeno</div>
+                    <Label className="font-bold text-black uppercase text-sm">Databáze</Label>
+                    <div className="p-3 bg-green-100 border-2 border-black font-mono font-bold text-green-700">
+                      ✅ PŘIPOJENO
+                    </div>
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Úložiště</Label>
-                    <div className="p-2 bg-green-100 border-2 border-black font-mono">✅ 2.3 GB / 10 GB</div>
+                    <Label className="font-bold text-black uppercase text-sm">Úložiště</Label>
+                    <div className="p-3 bg-green-100 border-2 border-black font-mono font-bold text-green-700">
+                      ✅ 2.3 GB / 10 GB
+                    </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-black">
+              <CardHeader className="border-b-4 border-black bg-blue-300">
+                <CardTitle className="flex items-center gap-2 font-black text-black">
                   <Shield className="h-5 w-5" />
                   ZÁLOHA A OBNOVENÍ
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="p-6 space-y-4">
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-blue-400 hover:bg-blue-500 text-black font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+                  <Button className="bg-blue-300 hover:bg-blue-400 text-black font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
                     <Download className="mr-2 h-4 w-4" />
-                    Vytvořit zálohu
+                    VYTVOŘIT ZÁLOHU
                   </Button>
-                  <Button
-                    variant="outline"
-                    className="border-2 border-black font-bold hover:bg-gray-100 bg-transparent"
-                  >
+                  <Button className="bg-purple-300 hover:bg-purple-400 text-black font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
                     <Upload className="mr-2 h-4 w-4" />
-                    Obnovit ze zálohy
+                    OBNOVIT ZE ZÁLOHY
                   </Button>
                 </div>
-                <div className="text-sm text-gray-600">Poslední záloha: 27.02.2024 02:00 (automatická)</div>
+                <div className="text-sm text-gray-600 font-medium">Poslední záloha: 27.02.2024 02:00 (automatická)</div>
               </CardContent>
             </Card>
 
             <Card className="border-4 border-red-500 shadow-[4px_4px_0px_0px_rgba(239,68,68,1)]">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-black text-red-600">
+              <CardHeader className="border-b-4 border-red-500 bg-red-300">
+                <CardTitle className="flex items-center gap-2 font-black text-black">
                   <AlertTriangle className="h-5 w-5" />
                   NEBEZPEČNÁ ZÓNA
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="p-6 space-y-4">
                 <div className="space-y-2">
-                  <Label className="font-bold text-red-600">Vymazat všechna data</Label>
-                  <p className="text-sm text-gray-600">
+                  <Label className="font-bold text-red-600 uppercase text-sm">Vymazat všechna data</Label>
+                  <p className="text-sm text-gray-600 font-medium">
                     Tato akce je nevratná a smaže všechny přihlášky, účastníky, platby a nastavení.
                   </p>
-                  <Button variant="destructive" className="border-2 border-black font-bold">
+                  <Button className="bg-red-400 hover:bg-red-500 text-white font-bold border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[1px_1px_0px_0px_rgba(0,0,0,1)] transition-all">
                     <Trash2 className="mr-2 h-4 w-4" />
-                    Vymazat všechna data
+                    VYMAZAT VŠECHNA DATA
                   </Button>
                 </div>
               </CardContent>
