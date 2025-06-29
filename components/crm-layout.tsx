@@ -4,8 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Building2, Calendar, Users, FileText, CreditCard, Settings, BarChart3, Menu, X, TrendingUp, AlertTriangle, Plus } from "lucide-react"
+import { Building2, Calendar, Users, FileText, CreditCard, Settings, BarChart3, Menu, X } from "lucide-react"
 
 const navigationItems = [
   { icon: BarChart3, label: "Dashboard", href: "/" },
@@ -92,7 +91,7 @@ export function CRMLayout({ children }: CRMLayoutProps) {
       {/* Sidebar */}
       <div
         className={`
-        fixed inset-y-0 left-0 z-50 w-60 bg-yellow-300 border-4 border-black transform transition-transform duration-300 ease-in-out flex flex-col
+        fixed inset-y-0 left-0 z-50 w-64 bg-yellow-300 border-r-4 border-t-4 border-b-4 border-black transform transition-transform duration-300 ease-in-out flex flex-col
         ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0 lg:static lg:inset-0
       `}
